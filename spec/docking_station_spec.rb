@@ -6,7 +6,7 @@ describe DockingStation do
 # Specifies details of the DockingStation object interface
   it { is_expected.to respond_to(:release_bike)}
   it { is_expected.to respond_to(:dock).with(1).argument }
-  it { is_expected.to respond_to(:bike) }
+  
 # Within the release bike method
 	describe '#release_bike' do
 		# Raises error when there are no bikes docked
@@ -17,8 +17,8 @@ describe DockingStation do
 	# Within the dock(bike) method
 	describe '#dock' do
 		it 'raises an error when dock is full' do
-			bike = subject.dock(Bike.new)
-			expect { subject.dock(bike)}.to raise_error 'Docking station is full'
+      20.times { subject.dock(Bike.new)}
+			expect { subject.dock(Bike.new)}.to raise_error 'Docking station is full'
 		end
 	end
 end
