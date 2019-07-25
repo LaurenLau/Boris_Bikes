@@ -1,31 +1,17 @@
+# In spec/docking_station_spec.rb
+
 require "docking_station"
-
+# Within the DockingStation object
 describe DockingStation do
-    it { is_expected.to respond_to(:release_bike)}
-
-    it 'releases working bike' do
-        bike = subject.release_bike
-        expect(bike).to be_working
-    end
-end
-
-describe DockingStation do
-    it { is_expected.to respond_to(:dock).with(1).argument }
-    
-    it 'docks bike' do
-        bike = Bike.new
-        expect(subject.dock(bike)).to eq(bike)
-    end
-
-    it 'returns docked bike' do
-        bike = Bike.new
-        subject.dock(bike)
-        expect(subject.bike).to eq bike
-    end 
-end
-
-describe DockingStation do
-
-    it { is_expected.to respond_to(:bike) }
-
+# Specifies details of the DockingStation object interface
+  it { is_expected.to respond_to(:release_bike)}
+  it { is_expected.to respond_to(:dock).with(1).argument }
+  it { is_expected.to respond_to(:bike) }
+# Within the Bike object
+	describe '#release_bike' do
+		# Raises error when there are no bikes docked
+		it 'raises an error when there are no bikes available' do
+		  expect { subject.release_bike }.to raise_error 'No bikes available'
+		end
+	end  
 end
