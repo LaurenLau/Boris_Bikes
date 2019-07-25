@@ -8,8 +8,9 @@ class DockingStation
       fail 'No bikes available' unless @bike 
       @bike
     end
-    # Method to dock bike
+    # Method to dock bike if dock doesn't already contain a bike
     def dock(bike)
+      fail 'Docking station full' if @bike
       @bike = bike
     end
 end
