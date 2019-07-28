@@ -1,6 +1,8 @@
 # in lib/docking_station.rb
 
 class DockingStation 
+  # Constant for magic number
+  DEFAULT_CAPACITY = 20
   # Initialize array
   def initialize
     @bikes = []
@@ -15,11 +17,13 @@ class DockingStation
     fail 'Docking station full' if full?
     @bikes << bike
   end
-  # Methods to describe whether 
+  # Two methods to describe docking station capacity
   def full?
-    @bikes.count >= 20
+    @bikes.count >= DEFAULT_CAPACITY
   end
+
   def empty?
     @bikes.empty?
   end
+  
 end
