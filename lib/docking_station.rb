@@ -13,6 +13,8 @@ class DockingStation
   # Method to release bike when bikes are available
   def release_bike
     fail 'No bikes available' if empty?
+
+    fail 'No bikes available' if broken?
     bikes.pop
   end
   # Method to dock bike if dock doesn't already contain a bike
@@ -27,5 +29,9 @@ class DockingStation
 
   def empty?
     bikes.empty?
+  end
+
+  def broken?
+    true
   end
 end
